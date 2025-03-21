@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Para Ti, Naely 💛</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:wght@700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html, body {
+            height: 100%;
+            overflow: hidden;
+        }
+        
+        body {
+            background: linear-gradient(to bottom, #0f0f1a, #1a1a2e);
+            font-family: 'Montserrat', sans-serif;
+            color: #fff;
+            position: relative;
+            width: 100%;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 100%;
+            padding: 15px;
+            position: relative;
+            z-index: 10;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        
+        .message {
+            background-color: rgba(30, 30, 46, 0.6);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(3px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            width: 90%;
+            max-width: 600px;
+            margin: 0 auto;
+            max-height: 80vh;
+            overflow-y: auto;
+            text-align: center;
+        }
+        
+        h1 {
+            color: #ffec5f;
+            font-family: 'Playfair Display', serif;
+            font-size: 2.3em;
+            margin-bottom: 15px;
+            text-shadow: 0 0 15px rgba(255, 236, 95, 0.6);
+            animation: glow 2s infinite alternate;
+        }
+        
+        @keyframes glow {
+            0% { text-shadow: 0 0 10px rgba(255, 236, 95, 0.5); }
+            100% { text-shadow: 0 0 20px rgba(255, 236, 95, 0.8); }
+        }
+        
+        p {
+            font-size: 1.1em;
+            color: #f0f0f0;
+            margin-bottom: 15px;
+            line-height: 1.5;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+        }
+        
+        .heart {
+            color: #ff5c8a;
+            font-size: 1.5em;
+            display: inline-block;
+            animation: beat 1s infinite alternate;
+            filter: drop-shadow(0 0 5px rgba(255, 92, 138, 0.7));
+            margin: 5px 0;
+        }
+        
+        @keyframes beat {
+            from { transform: scale(1); }
+            to { transform: scale(1.3); }
+        }
+        
+        .date {
+            font-size: 1.1em;
+            color: #ffd700;
+            margin: 15px 0;
+            font-weight: bold;
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.6);
+            display: inline-block;
+            border-radius: 20px;
+        }
+        
+        /* Palabras destacadas */
+        .radiante {
+            color: #ffee00;
+            text-shadow: 0 0 10px rgba(255, 238, 0, 0.8);
+            animation: brilloRadiante 2s infinite alternate;
+            font-weight: bold;
+        }
+        
+        @keyframes brilloRadiante {
+            0% { text-shadow: 0 0 5px rgba(255, 238, 0, 0.5); }
+            100% { text-shadow: 0 0 15px rgba(255, 238, 0, 1); }
+        }
+        
+        .fuerte {
+            color: #ff9900;
+            font-weight: bold;
+            letter-spacing: 1px;
+            text-shadow: 0 2px 3px rgba(0, 0, 0, 0.3);
+        }
+        
+        .brillante {
+            color: #3af5ff;
+            text-shadow: 0 0 10px rgba(58, 245, 255, 0.8);
+            font-weight: bold;
+        }
+        
+        /* Botón fijo en la parte inferior */
+        .btn {
+            background: linear-gradient(45deg, #ffc800, #ffee00);
+            color: #121212;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 30px;
+            font-size: 1em;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.5);
+            position: fixed;
+            bottom: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1000;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            white-space: nowrap;
+        }
+        
+        .btn:active {
+            transform: translateX(-50%) scale(0.95);
+            box-shadow: 0 2px 10px rgba(255, 215, 0, 0.4);
+        }
+        
+        /* Botón de música en esquina inferior derecha */
+        .music-control {
+            position: fixed;
+            bottom: 15px;
+            right: 15px;
+            z-index: 1000;
+            background: rgba(255, 220, 0, 0.8);
+            border-radius: 50%;
+            width: 45px;
+            height: 45px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.5);
+            border: 2px solid rgba(255, 255, 255, 0.7);
+            color: #121212;
+            font-size: 1.2em;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(255, 215, 0, 0.7); }
+            70% { box-shadow: 0 0 0 10px rgba(255, 215, 0, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(255, 215, 0, 0); }
+        }
+        
+        /* Ground - Ajuste completo de ancho y sin línea */
+        .ground {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background: linear-gradient(to bottom, transparent, rgba(20, 70, 30, 0.8));
+            z-index: 3;
+            border: none;
+            margin: 0;
+            padding: 0;
+        }
+        
+        /* Versión mejorada de las flores */
+        .flower {
+            position: fixed;
+            bottom: 0;
+            opacity: 0;
+            z-index: 5;
+            transform-origin: bottom center;
+            animation-duration: 4s;
+            animation-fill-mode: forwards;
+            pointer-events: none;
+        }
+        
+        /* Tallos mejorados */
+        .flower-stem {
+            position: absolute;
+            width: 6px;
+            height: 120px;
+            background: linear-gradient(to bottom, #2e8b57, #3cb371);
+            bottom: 0;
+            left: 50%;
+            transform-origin: bottom center;
+            transform: translateX(-50%) rotate(calc(var(--stem-angle) * 1deg));
+            z-index: 4;
+            box-shadow: 0 0 5px rgba(60, 179, 113, 0.4);
+            border-radius: 50% 50% 0 0 / 20%;
+        }
+        
+        .flower-head {
+            position: relative;
+            width: 80px;
+            height: 80px;
+            bottom: 100px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        /* Pétalos más realistas */
+        .petal {
+            position: absolute;
+            width: 35px;
+            height: 35px;
+            background: radial-gradient(circle at 30%, #ffee00, #ffd700);
+            border-radius: 50% 50% 50% 0;
+            top: 50%;
+            left: 50%;
+            z-index: 5;
+            box-shadow: 0 0 10px rgba(255, 215, 0, 0.7);
+            filter: brightness(1.2);
+            animation: petalFlutter 3s ease-in-out infinite alternate;
+            animation-delay: calc(var(--petal-delay) * 0.5s);
+        }
+        
+        @keyframes petalFlutter {
+            0% { transform: translate(-50%, -50%) rotate(calc(var(--petal-rotate-base) * 1deg)) translateX(calc(var(--petal-distance) * 1px)) rotate(45deg) scale(1); }
+            50% { transform: translate(-50%, -50%) rotate(calc(var(--petal-rotate-base) * 1deg)) translateX(calc(var(--petal-distance) * 1px)) rotate(45deg) scale(1.05); }
+            100% { transform: translate(-50%, -50%) rotate(calc(var(--petal-rotate-base) * 1deg)) translateX(calc(var(--petal-distance) * 1px)) rotate(45deg) scale(0.95); }
+        }
+        
+        .petal:nth-child(1) { --petal-rotate-base: 0; --petal-distance: 30; --petal-delay: 0; }
+        .petal:nth-child(2) { --petal-rotate-base: 45; --petal-distance: 30; --petal-delay: 0.2; }
+        .petal:nth-child(3) { --petal-rotate-base: 90; --petal-distance: 30; --petal-delay: 0.4; }
+        .petal:nth-child(4) { --petal-rotate-base: 135; --petal-distance: 30; --petal-delay: 0.6; }
+        .petal:nth-child(5) { --petal-rotate-base: 180; --petal-distance: 30; --petal-delay: 0.8; }
+        .petal:nth-child(6) { --petal-rotate-base: 225; --petal-distance: 30; --petal-delay: 1.0; }
+        .petal:nth-child(7) { --petal-rotate-base: 270; --petal-distance: 30; --petal-delay: 1.2; }
+        .petal:nth-child(8) { --petal-rotate-base: 315; --petal-distance: 30; --petal-delay: 1.4; }
+        
+        .flower-center {
+            position: absolute;
+            width: 35px;
+            height: 35px;
+            background: radial-gradient(circle, #8B4513, #654321);
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 6;
+            box-shadow: 0 0 5px rgba(139, 69, 19, 0.5);
+        }
+        
+        .center-detail {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: 
+                radial-gradient(circle at 30% 30%, transparent 10%, rgba(0,0,0,0.2) 10%, rgba(0,0,0,0.2) 13%, transparent 13%),
+                radial-gradient(circle at 70% 30%, transparent 10%, rgba(0,0,0,0.2) 10%, rgba(0,0,0,0.2) 13%, transparent 13%),
+                radial-gradient(circle at 30% 70%, transparent 10%, rgba(0,0,0,0.2) 10%, rgba(0,0,0,0.2) 13%, transparent 13%),
+                radial-gradient(circle at 70% 70%, transparent 10%, rgba(0,0,0,0.2) 10%, rgba(0,0,0,0.2) 13%, transparent 13%),
+                radial-gradient(circle at 50% 50%, transparent 35%, rgba(0,0,0,0.2) 35%, rgba(0,0,0,0.2) 40%, transparent 40%);
+        }
+        
+        /* Hojas mejoradas */
+        .leaf {
+            position: absolute;
+            width: 30px;
+            height: 20px;
+            background: linear-gradient(to right, #32CD32, #7CFC00);
+            border-radius: 50% 50% 0 50%;
+            z-index: 4;
+            box-shadow: 0 0 10px rgba(50, 205, 50, 0.5);
+            filter: brightness(1.1);
+            animation: leafFlutter 6s ease-in-out infinite alternate;
+        }
+        
+        @keyframes leafFlutter {
+            0% { transform: rotate(calc(var(--leaf-angle) * 1deg)); }
+            50% { transform: rotate(calc((var(--leaf-angle) + 5) * 1deg)); }
+            100% { transform: rotate(calc((var(--leaf-angle) - 5) * 1deg)); }
+        }
+        
+        .leaf.left {
+            bottom: 40px;
+            left: -15px;
+            --leaf-angle: -40;
+        }
+        
+        .leaf.right {
+            bottom: 70px;
+            right: -15px;
+            --leaf-angle: 40;
+            transform: scaleX(-1) rotate(40deg);
+        }
+        
+        /* Animación de flores más suave */
+        @keyframes flowerWholeMovement {
+            0% { transform: translateX(0) rotate(0deg); }
+            25% { transform: translateX(calc(var(--wind-x) * 1px)) rotate(calc(var(--wind-r) * 0.5deg)); }
+            50% { transform: translateX(calc(var(--wind-x) * 0.5px)) rotate(calc(var(--wind-r) * 1deg)); }
+            75% { transform: translateX(calc(var(--wind-x) * -0.5px)) rotate(calc(var(--wind-r) * -0.5deg)); }
+            100% { transform: translateX(0) rotate(0deg); }
+        }
+        
+        @keyframes bloomModern {
+            0% { transform: scale(0.1) translateY(50px); opacity: 0; }
+            20% { transform: scale(0.4) translateY(30px); opacity: 0.4; }
+            60% { transform: scale(0.8) translateY(10px); opacity: 0.8; }
+            80% { transform: scale(1.05) translateY(0); opacity: 1; }
+            90% { transform: scale(0.95) translateY(0); opacity: 1; }
+            100% { transform: scale(1) translateY(0); opacity: 1; }
+        }
+        
+        /* Estrellas */
+        .star {
+            position: fixed;
+            width: 2px;
+            height: 2px;
+            background-color: #FFF;
+            border-radius: 50%;
+            z-index: 1;
+            animation: twinkle 5s infinite alternate;
+        }
+        
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.2; }
+            50% { opacity: 1; }
+        }
+        
+        /* Pétalos cayendo */
+        .falling-petal {
+            position: fixed;
+            width: 15px;
+            height: 15px;
+            background: radial-gradient(circle at 30%, #fff200, #ffd700);
+            border-radius: 50% 0 50% 50%;
+            opacity: 0.8;
+            z-index: 3;
+            filter: drop-shadow(0 0 5px rgba(255, 215, 0, 0.5));
+            animation: fall 10s linear infinite;
+            pointer-events: none;
+        }
+        
+        @keyframes fall {
+            0% { transform: translateY(-100px) rotate(0deg); opacity: 0.8; }
+            50% { transform: translateY(50vh) rotate(180deg) translateX(calc(var(--wind-factor) * 1px)); opacity: 0.6; }
+            100% { transform: translateY(100vh) rotate(360deg) translateX(calc(var(--wind-factor) * 2px)); opacity: 0; }
+        }
+        
+        /* Ajustes para pantallas muy pequeñas */
+        @media (max-width: 350px) {
+            h1 {
+                font-size: 1.8em;
+            }
+            
+            p {
+                font-size: 0.9em;
+            }
+            
+            .btn {
+                padding: 10px 15px;
+                font-size: 0.9em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="message">
+            <h1>Para Ti, Naely 💛</h1>
+            
+            <p>En cada latido de mi corazón, guardo el recuerdo de todos estos maravillosos años juntos.</p>
+            
+            <p>Cada flor amarilla me recuerda a ti: <br>
+            <span class="radiante">Radiante</span> como tu sonrisa que ilumina mis días, <br>
+            <span class="fuerte">Fuerte</span> como tu espíritu que enfrenta cualquier desafío, <br>
+            <span class="brillante">Brillante</span> como tu mente que me sorprende cada día.</p>
+            
+            <p>Te amo profundamente por estar siempre a mi lado, <br>
+            En las buenas y en las malas, <br>
+            Siendo mi roca y mi consuelo cada instante.</p>
+            
+            <p>Estoy tan orgulloso de verte casi culminar tu carrera de psicología. <br>
+            Sé que serás una profesional increíble, <br>
+            Porque tu corazón está en cada cosa que haces.</p>
+            
+            <p>Eres la melodía que da ritmo a mi vida, <br>
+            El sueño del que nunca quiero despertar, <br>
+            Mi amor eterno, mi cómplice, mi todo.</p>
+            
+            <div class="heart">❤️</div>
+            
+            <p class="date">21 de Marzo - Día de las Flores Amarillas</p>
+        </div>
+    </div>
+    
+    <div class="ground"></div>
+    <button class="btn" id="moreFlowers">Regalar más flores</button>
+    <div class="music-control" id="musicToggle">🎵</div>
+    
+    <audio id="bgMusic" loop>
+        <source src="mi-musica.mp3" type="audio/mpeg">
+    </audio>
+    <script>
+        // Control de música
+        const musicToggle = document.getElementById('musicToggle');
+        const bgMusic = document.getElementById('bgMusic');
+        const moreFlowersBtn = document.getElementById('moreFlowers');
+        let isMusicPlaying = false;
+        
+        musicToggle.addEventListener('click', toggleMusic);
+        
+        function toggleMusic() {
+            if (isMusicPlaying) {
+                bgMusic.pause();
+                musicToggle.textContent = '🔇';
+                musicToggle.style.background = 'rgba(200, 200, 200, 0.8)';
+                isMusicPlaying = false;
+            } else {
+                bgMusic.play().then(() => {
+                    musicToggle.textContent = '🎵';
+                    musicToggle.style.background = 'rgba(255, 220, 0, 0.8)';
+                    isMusicPlaying = true;
+                }).catch(error => {
+                    alert("Para reproducir música, asegúrate de tener un archivo mp3 llamado 'mi-musica.mp3' en la misma carpeta");
+                });
+            }
+        }
+        
+        // Detección de dispositivos móviles
+        function isMobile() {
+            return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+        }
+        
+        // Versión mejorada de creación de flores
+        function createFlowerElement() {
+            // Contenedor principal
+            const flower = document.createElement('div');
+            flower.classList.add('flower');
+            
+            // Variables para el movimiento (más natural)
+            const windX = Math.random() * 8 - 4; 
+            const windR = Math.random() * 5 - 2.5;  
+            flower.style.setProperty('--wind-x', windX);
+            flower.style.setProperty('--wind-r', windR);
+            
+            // Aplicar animación de movimiento
+            const animDuration = 5 + Math.random() * 5;
+            flower.style.animation = `flowerWholeMovement ${animDuration}s ease-in-out infinite alternate, bloomModern ${3 + Math.random() * 2}s ease-in-out forwards`;
+            
+            // Tallo
+            const stem = document.createElement('div');
+            stem.classList.add('flower-stem');
+            const stemAngle = Math.random() * 6 - 3;
+            stem.style.setProperty('--stem-angle', stemAngle);
+            flower.appendChild(stem);
+            
+            // Tamaño aleatorio para el tallo
+            const stemHeight = 80 + Math.random() * 100; // Entre 80px y 180px
+            stem.style.height = `${stemHeight}px`;
+            
+            // Hojas
+            const leafLeft = document.createElement('div');
+            leafLeft.classList.add('leaf', 'left');
+            flower.appendChild(leafLeft);
+            
+            const leafRight = document.createElement('div');
+            leafRight.classList.add('leaf', 'right');
+            flower.appendChild(leafRight);
+            
+            // Cabeza de la flor
+            const head = document.createElement('div');
+            head.classList.add('flower-head');
+            
+            // Ajustar la posición según la altura del tallo
+            head.style.bottom = `${stemHeight - 20}px`;
+            
+            // Tamaño aleatorio para la cabeza
+            const headSize = 60 + Math.random() * 60; // Entre 60px y 120px
+            head.style.width = `${headSize}px`;
+            head.style.height = `${headSize}px`;
+            
+            // Pétalos
+            for (let i = 0; i < 8; i++) {
+                const petal = document.createElement('div');
+                petal.classList.add('petal');
+                
+                // Tamaño proporcional a la cabeza
+                const petalSize = headSize * 0.45;
+                petal.style.width = `${petalSize}px`;
+                petal.style.height = `${petalSize}px`;
+                
+                // Variación para más naturalidad
+                const petalOffset = Math.random() * 3 - 1.5;
+                petal.style.setProperty('--petal-offset', petalOffset);
+                
+                // Retraso en animación
+                petal.style.setProperty('--petal-delay', i * 0.2);
+                
+                head.appendChild(petal);
+            }
+            
+            // Centro de la flor
+            const center = document.createElement('div');
+            center.classList.add('flower-center');
+            
+            // Tamaño proporcional
+            center.style.width = `${headSize * 0.4}px`;
+            center.style.height = `${headSize * 0.4}px`;
+            
+            head.appendChild(center);
+            
+            // Detalles del centro
+            const centerDetail = document.createElement('div');
+            centerDetail.classList.add('center-detail');
+            center.appendChild(centerDetail);
+            
+            flower.appendChild(head);
+            
+            return flower;
+        }
+        // Crear estrellas
+        function createStars() {
+            const starCount = isMobile() ? 30 : 60;
+            
+            for (let i = 0; i < starCount; i++) {
+                const star = document.createElement('div');
+                star.classList.add('star');
+                
+                // Posición aleatoria
+                star.style.left = Math.random() * 100 + 'vw';
+                star.style.top = Math.random() * 100 + 'vh';
+                
+                // Tamaño aleatorio
+                const size = Math.random() * 2 + 1;
+                star.style.width = size + 'px';
+                star.style.height = size + 'px';
+                
+                // Brillo aleatorio
+                star.style.opacity = Math.random() * 0.8 + 0.2;
+                
+                // Animación
+                star.style.animationDelay = Math.random() * 5 + 's';
+                star.style.animationDuration = Math.random() * 3 + 2 + 's';
+                
+                document.body.appendChild(star);
+            }
+        }
+        
+        // Posición aleatoria para flores (enfocada en los bordes)
+        function getRandomFlowerPosition() {
+            const position = {};
+            position.bottom = 0; // Siempre desde abajo
+            
+            // 70% de probabilidad de que aparezca en los bordes
+            if (Math.random() < 0.7) {
+                const side = Math.random() < 0.5 ? 'left' : 'right';
+                if (side === 'left') {
+                    position.left = Math.random() * (window.innerWidth * 0.3);
+                } else {
+                    position.left = window.innerWidth - (Math.random() * (window.innerWidth * 0.3));
+                }
+            } else {
+                position.left = Math.random() * window.innerWidth;
+            }
+            
+            return position;
+        }
+        
+        // Crear una flor
+        function createFlower() {
+            const flower = createFlowerElement();
+            
+            // Posición con preferencia en bordes
+            const position = getRandomFlowerPosition();
+            flower.style.left = position.left + 'px';
+            
+            // Tamaño aleatorio
+            const sizeVariation = 0.6 + Math.random() * 0.7; // Entre 0.6 y 1.3
+            flower.style.transform = `scale(${sizeVariation})`;
+            
+            document.body.appendChild(flower);
+            
+            // Límite de flores para evitar sobrecarga
+            setTimeout(() => {
+                const flowers = document.querySelectorAll('.flower');
+                if (flowers.length > 15) {
+                    flowers[0].remove();
+                }
+            }, 8000);
+        }
+        
+        // Crear pétalos cayendo
+        function createFallingPetal() {
+            const petal = document.createElement('div');
+            petal.classList.add('falling-petal');
+            
+            // Posición inicial aleatoria
+            petal.style.left = Math.random() * window.innerWidth + 'px';
+            
+            // Velocidad de caída aleatoria
+            petal.style.animationDuration = 8 + Math.random() * 10 + 's';
+            
+            // Dirección de caída
+            petal.style.setProperty('--wind-factor', Math.random() * 100 - 50);
+            
+            // Rotación aleatoria
+            petal.style.transform = `rotate(${Math.random() * 360}deg)`;
+            
+            // Tamaño aleatorio
+            const petalSize = 10 + Math.random() * 10;
+            petal.style.width = `${petalSize}px`;
+            petal.style.height = `${petalSize}px`;
+            
+            document.body.appendChild(petal);
+            
+            // Eliminar después de la animación
+            setTimeout(() => petal.remove(), 10000);
+        }
+        // Inicialización
+        window.addEventListener('DOMContentLoaded', () => {
+            // Crear estrellas
+            createStars();
+            
+            // Crear flores iniciales
+            setTimeout(() => {
+                const initialFlowers = isMobile() ? 5 : 8;
+                
+                for (let i = 0; i < initialFlowers; i++) {
+                    setTimeout(() => createFlower(), i * 500);
+                }
+                
+                // Pétalos cayendo ocasionalmente
+                setInterval(createFallingPetal, 2000);
+                
+            }, 800);
+        });
+        
+        // Botón para añadir más flores
+        moreFlowersBtn.addEventListener('click', () => {
+            // Feedback visual al botón
+            moreFlowersBtn.style.transform = 'translateX(-50%) scale(0.95)';
+            setTimeout(() => {
+                moreFlowersBtn.style.transform = 'translateX(-50%)';
+            }, 200);
+            
+            // Crear nuevas flores
+            const newFlowersCount = isMobile() ? 4 : 6;
+            
+            for (let i = 0; i < newFlowersCount; i++) {
+                setTimeout(() => createFlower(), i * 400);
+            }
+            
+            // Más pétalos cayendo
+            for (let i = 0; i < 5; i++) {
+                setTimeout(createFallingPetal, i * 500);
+            }
+            
+            // Intentar reproducir música
+            if (!isMusicPlaying) {
+                toggleMusic();
+            }
+        });
+    </script>
+</body>
+</html>
